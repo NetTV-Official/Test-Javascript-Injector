@@ -1,9 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON Stringify & Parse Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    pre {
+      background: #fff;
+      padding: 15px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+    }
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
 <body>
 
-<h1>RetroByte</h1>
-<p>Welcome to RetroByte</p>
+  <h1>JSON.stringify & JSON.parse Demo</h1>
+
+  <button onclick="runExample()">Run Example</button>
+
+  <h2>JSON String</h2>
+  <pre id="jsonOutput"></pre>
+
+  <h2>Parsed Object</h2>
+  <pre id="objectOutput"></pre>
+
+  <script>
+    function runExample() {
+      // JavaScript object
+      const user = {
+        id: 1,
+        name: "Alex",
+        email: "alex@example.com",
+        active: true,
+        roles: ["admin", "editor"]
+      };
+
+      // Convert object to JSON string
+      const jsonString = JSON.stringify(user, null, 2);
+
+      // Display JSON string
+      document.getElementById("jsonOutput").textContent = jsonString;
+
+      // Parse JSON string back to object
+      const parsedObject = JSON.parse(jsonString);
+
+      // Display parsed object
+      document.getElementById("objectOutput").textContent =
+        JSON.stringify(parsedObject, null, 2);
+    }
+  </script>
 
 </body>
-</html> 
+</html>
